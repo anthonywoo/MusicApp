@@ -1,0 +1,20 @@
+<h1>Songs by Genre</h1>
+
+<h4> Filter Songs by Genre below </h4 >
+<p>
+<%= form_for @new_object do |f|%>
+<%@genres.each do |genre|%>
+  <%=
+  check_box_tag(
+  "genre_id[]",
+  genre.id,
+  @selected.include?(genre.id.to_s),
+  :id => "genre_id_#{genre.id}"
+  )
+  %>
+  <%= label_tag "genre_id_#{genre.id}", genre.genre_type%>
+  <% end %>
+  <%= f.submit 'Filter' %>
+
+<%end%>
+</p>

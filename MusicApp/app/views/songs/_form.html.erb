@@ -1,0 +1,21 @@
+<%= form_for @song do |f| %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%Genre.all.each do |genre|%>
+      <%=
+      check_box_tag(
+      "genre_id[]",
+      genre.id,
+      false,
+      :id => "genre_id_#{genre.id}"
+      )
+      %>
+    <%= label_tag "genre_id_#{genre.id}", genre.genre_type%>
+    <% end %>
+    <%= hidden_field_tag "song[artist_id]", @artist.id%>
+    <%= f.submit 'Submit' , class: "btn btn-primary" %>
+
+  </p>
+<% end %>

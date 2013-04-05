@@ -1,0 +1,9 @@
+
+<%= form_for @recording do |f|%>
+
+<%= f.collection_select :band_id, Band.all, :id, :name%>
+<%= f.submit "Add Recording Band"%>
+
+<%= hidden_field_tag "recording[song_id]", @song.id%>
+
+<%end%>

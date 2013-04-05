@@ -1,0 +1,21 @@
+<h1><%= @song.name %></h1>
+<h5> by: <%=@song.author.name%> </h5>
+
+<h3> Recordings </h3>
+
+<% @song.recordings.each do |recording|%>
+  <li>
+<%= recording.band.name%>
+  </li>
+<% end %>
+
+<%= render partial: 'recordings/form' %>
+
+<h3> Genres </h3 >
+  <% @song.genres.each do |genre|%>
+  <ul>
+  <li>
+  <%= link_to genre.genre_type, genre_url(genre) %>
+</li>
+  </ul>
+<% end %>

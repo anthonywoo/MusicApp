@@ -1,0 +1,19 @@
+<h1><%= @artist.name %></h1>
+
+<h2> Current Songs </h2>
+
+<div>
+
+    <%if @artist.songs.empty?%>
+    <%#= "Artist has no songs"%>
+    <% end %>
+    <% @artist.songs.each do |song|   %>
+    <li>
+      <%= link_to song.name, song_url(song)%>
+    </li>
+    <% end %>
+</div>
+<h3> Add new song </h3  >
+<%= render partial: 'songs/form' %>
+
+
